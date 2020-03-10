@@ -1,0 +1,1 @@
+SELECT * FROM pedidos WHERE  YEAR(data_pedido) < 2010;
