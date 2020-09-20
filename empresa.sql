@@ -113,14 +113,11 @@ alter table TRABALHA_EM	ADD FOREIGN KEY(Pnr) REFERENCES PROJETO(Projnumero);
 alter table PROJETO	ADD FOREIGN KEY (Dnum) REFERENCES DEPARTAMENTO(Dnumero);
 alter table DEPENDENTE ADD FOREIGN KEY(Fcpf) REFERENCES FUNCIONARIO(CPF);
 commit;
--- Respostas das alternativas estão etão funcionando, mas para não deixar os resultados misturados estão em comentário:
 -- SELECT  Pnome FROM FUNCIONARIO,TRABALHA_EM,PROJETO WHERE Dnr = 4 AND Horas >= 15 AND Projnome = 'Informatização';
 -- SELECT FUNCIONARIO.Pnome,FUNCIONARIO.Sexo,DEPENDENTE.Sexo FROM FUNCIONARIO,DEPENDENTE  WHERE  FUNCIONARIO.Sexo = DEPENDENTE.Sexo;
 -- SELECT Pnome FROM FUNCIONARIO WHERE Cpf_supervisor ='98765432168';
 -- UPDATE  DEPARTAMENTO SET Cpf_gerente ='12345678966', Data_inicio_gerente='2020-09-07'  WHERE  Dnumero =5;
 -- UPDATE  TRABALHA_EM SET Horas = 5.0 WHERE Fcpf ='99988777767' AND Pnr = 10;
--- UPDATE DEPARTAMENTO,FUNCIONARIO SET Salario = Salario - (Salario * 0.10) WHERE  Dnome = 'Administração'; 
+-- UPDATE FUNCIONARIO SET SALARIO=SALARIO - (SALARIO*0.1) WHERE Dnr=(SELECT Dnumero FROM DEPARTAMENTO WHERE Dnome='Administração');
 -- DELETE FROM DEPARTAMENTO WHERE Dnome = 'Matriz';
 -- UPDATE FUNCIONARIO SET Cpf_supervisor ='94377554355' WHERE Cpf = '99988777767';
-
-
