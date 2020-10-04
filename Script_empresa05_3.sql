@@ -142,7 +142,6 @@ commit;
 -- Letra k: 
 -- UPDATE Resumo_Departamento SET Num_dept = 3 WHERE Num_dept = 4;
 -- DELETE FROM Resumo_Departamento WHERE Num_func > 1;
--- Letra l(ERRADO): 
--- CREATE ASSERTION SEXO_FUNCIONARIO AS CHECK(<SELECT COUNT(*)FROM FUNCIONARIO s WHERE s.Sexo = 'F'>);
--- Letra M(ERRADO): 
--- CREATE TIGGER INS_FUNCIONARIO ON FUNCIONARIO FOR EACH ROW INSERT INTO DEPARTAMENTO(Dnumero) VALUES ('NOVO FUNCIONARIO INSERIDO');
+-- Letra L: 
+-- Letra M: 
+
