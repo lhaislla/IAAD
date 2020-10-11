@@ -73,12 +73,12 @@ CREATE TABLE IF NOT EXISTS `Companhia Aérea`.`INSTANCIA_TRECHO` (
   PRIMARY KEY (`Data`),
   INDEX `Numero_voo_1_idx` (`Numero_voo` ASC),
   INDEX `Numero_trecho_1_idx` (`Numero_trecho` ASC),
-  CONSTRAINT `Numero_voo_1`
+  CONSTRAINT `Numero_voo_2`
     FOREIGN KEY (`Numero_voo`)
     REFERENCES `Companhia Aérea`.`VOO` (`Numero_voo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `Numero_trecho_1`
+  CONSTRAINT `Numero_trecho_2`
     FOREIGN KEY (`Numero_trecho`)
     REFERENCES `Companhia Aérea`.`TRECHO_VOO` (`Numero_trecho`)
     ON DELETE NO ACTION
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `Companhia Aérea`.`TARIFA` (
   `Quantidade` INT NULL,
   `Restricoes` VARCHAR(255) NULL,
   PRIMARY KEY (`Numero_voo`, `Codgio_tarifa`),
-  CONSTRAINT `Numero_voo_1`
+  CONSTRAINT `Numero_voo_4`
     FOREIGN KEY (`Numero_voo`)
     REFERENCES `Companhia Aérea`.`VOO` (`Numero_voo`)
     ON DELETE NO ACTION
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `Companhia Aérea`.`PODE_POUSAR` (
   `Codigo_aeroporto` INT NULL,
   INDEX `Tipo_aeronave_1_idx` (`Nome_tipo_aeronave` ASC),
   INDEX `Codigo_aeroporto_1_idx` (`Codigo_aeroporto` ASC),
-  CONSTRAINT `Tipo_aeronave_1`
+  CONSTRAINT `Tipo_aeronave_2`
     FOREIGN KEY (`Nome_tipo_aeronave`)
     REFERENCES `Companhia Aérea`.`TIPO_AERONAVE` (`Nome_tipo_aeronave`)
     ON DELETE NO ACTION
@@ -165,12 +165,12 @@ CREATE TABLE IF NOT EXISTS `Companhia Aérea`.`RESERVA_ASSENTO` (
   PRIMARY KEY (`Numero_voo`, `Numero_trecho`, `Numero_assento`, `Data`),
   INDEX `Numero_trecho_1_idx` (`Numero_trecho` ASC),
   INDEX `Data_trecho_voo_1_idx` (`Data` ASC),
-  CONSTRAINT `Numero_voo_1`
+  CONSTRAINT `Numero_voo_3`
     FOREIGN KEY (`Numero_voo`)
     REFERENCES `Companhia Aérea`.`VOO` (`Numero_voo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `Trecho_voo_1`
+  CONSTRAINT `Trecho_voo_3`
     FOREIGN KEY (`Numero_trecho`)
     REFERENCES `Companhia Aérea`.`TRECHO_VOO` (`Numero_trecho`)
     ON DELETE NO ACTION
@@ -186,4 +186,3 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
